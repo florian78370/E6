@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des produits pour chien{% endblock %}
+
+{% block body %}
+<h1 class="pt-2 text-center">Liste des produits pour chien</h1>
+<hr>
+<div class="row pt-2">
+{% for leCheval in lesChevaux %}
+<div class="col-sm-12.col-md-4.col-lg-4.col col-xl-3">
+
+    {% set nbChevaux = leCheval|length %}
+        
+        <div class="card mb-3">
+            <h3 class="card-header"> <a href="{{path('ficheCheval', {'id': leCheval.id })}} ">{{leCheval.nom}} </a></h3>
+            <div class="card-body"></div>
+            <img class = "avatar mx auto d-block" src="{{leCheval.image}}" class="d-block user-select-none" width="200px" height="auto"></img>
+            <div class="card-body">
+                <p class="card-text">{{leCheval.description|slice(0,200)|raw}}...</p>
+            </div>
+        </div>
+</div>
+
+{% endfor %}
+
+
+</div>
+{% endblock %}
