@@ -2,17 +2,28 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\Chat;
+use App\Repository\ChatRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ChatController extends AbstractController
 {
-    #[Route('/chat', name: 'app_chat')]
-    public function index(): Response
+    #[Route('/chat', name: 'chats')]
+    public function ListesChats(ChatRepository $repo)
     {
+        $repo->listeChatsComplete();/* query NOT result */
         return $this->render('chat/index.html.twig', [
-            'controller_name' => 'ChatController',
+            'lesChats' => $chat,
+        ]);
+    }
+
+    #[Route("/chat/{id}", name: 'ficheChat', methods :'GET')]
+    public function ficheChats(Chat $chat)
+    {
+        return $this->render('chat/ficheChat.html.twig', [
+            'leChat' => $chat
         ]);
     }
 }
