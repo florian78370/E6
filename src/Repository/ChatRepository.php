@@ -3,8 +3,9 @@
 namespace App\Repository;
 
 use App\Entity\Chat;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @extends ServiceEntityRepository<Chat>
@@ -21,28 +22,15 @@ class ChatRepository extends ServiceEntityRepository
         parent::__construct($registry, Chat::class);
     }
 
-   /**
+    /**
     * @return Chat[] Returns an array of Chat objects
     */
-   public function findByExampleField($value): array
-   {
-       return $this->createQueryBuilder('c')
-           ->andWhere('c.exampleField = :val')
-           ->setParameter('val', $value)
-           ->orderBy('c.id', 'ASC')
-           ->setMaxResults(10)
-           ->getQuery()
-           ->getResult()
-       ;
-   }
+    public function listeChatsComplete(): ?Query
+    {
+        return $this->createQueryBuilder('chat')
+        ->select('chat')
+        ->getQuery()
+        ;
+    }
 
-   public function findOneBySomeField($value): ?Chat
-   {
-       return $this->createQueryBuilder('c')
-           ->andWhere('c.exampleField = :val')
-           ->setParameter('val', $value)
-           ->getQuery()
-           ->getOneOrNullResult()
-       ;
-   }
 }
