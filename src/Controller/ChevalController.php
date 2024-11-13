@@ -2,17 +2,28 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\Cheval;
+use App\Repository\ChevalRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ChevalController extends AbstractController
 {
-    #[Route('/cheval', name: 'app_cheval')]
-    public function index(): Response
+    #[Route('/chevaux', name: 'app_cheval', methods : 'GET')]
+    public function listesChevaux(ChevalRepository $repo)
     {
-        return $this->render('cheval/index.html.twig', [
-            'controller_name' => 'ChevalController',
+        $chevaux=$repo->listeChevauxComplete();
+        return $this->render('cheval/listeChevaux.html.twig', [
+            'lesChevaux' => $cheval,
+        ]);
+    }
+
+    #[Route('/cheval/{id}', name: 'ficheCheval', methods :'GET')]
+    public function ficheCheval(Cheval $cheval)
+    {   
+        return $this->render('cheval/ficheCheval.html.twig', [
+            'leCheval' => $cheval
         ]);
     }
 }
