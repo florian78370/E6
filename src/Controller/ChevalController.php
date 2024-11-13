@@ -10,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ChevalController extends AbstractController
 {
-    #[Route('/chevaux', name: 'app_cheval', methods : 'GET')]
+    #[Route('/chevaux', name: 'cheval', methods : 'GET')]
     public function listesChevaux(ChevalRepository $repo)
     {
         $chevaux=$repo->listeChevauxComplete();

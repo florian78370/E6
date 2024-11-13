@@ -10,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ChienController extends AbstractController
 {
-    #[Route('/chien', name: 'app_chien', methods : 'GET')]
+    #[Route('/chien', name: 'chien', methods : 'GET')]
     public function listeChiens(ChienRepository $repo)
     {
         $chiens=$repo->listeChiensComplete();

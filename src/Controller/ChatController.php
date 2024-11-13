@@ -10,7 +10,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ChatController extends AbstractController
 {
-    #[Route('/chat', name: 'chats')]
+    #[Route('/chat', name: 'chats', methods : 'GET')]
+
     public function ListesChats(ChatRepository $repo)
     {
         $repo->listeChatsComplete();/* query NOT result */
