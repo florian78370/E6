@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Chat;
 use App\Repository\ChatRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -18,12 +19,11 @@ class ChatController extends AbstractController
             'controller_name' => 'ChatController',
         ]);
     }
-
     #[Route("/chat/{id}", name: 'ficheChat', methods :'GET')]
-    public function ficheChats(Artiste $artiste) : Response
+    public function ficheChats(Chat $chat) : Response
     {
         return $this->render('artiste/ficheChat.html.twig', [
-            'leArtiste' => $artiste
+            'leChat' => $chat
         ]);
     }
 }
