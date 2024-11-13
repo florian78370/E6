@@ -15,8 +15,8 @@ class ChatController extends AbstractController
     public function ListesChats(ChatRepository $repo)
     {
         $repo->listeChatsComplete();/* query NOT result */
-        return $this->render('chat/index.html.twig', [
-            'lesChats' => $chat,
+        return $this->render('chat/listeChat.html.twig', [
+            'lesChats' => $chats,
         ]);
     }
 
