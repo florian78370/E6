@@ -23,7 +23,7 @@ class ChienController extends AbstractController
     #[Route('/chien/{id}', name: 'ficheChien', methods :'GET')]
     public function ficheChien(Chien $chien)
     {   
-        return $this->render('artiste/ficheChien.html.twig', [
+        return $this->render('chien/ficheChien.html.twig', [
             'leChien' => $chien
         ]);
     }

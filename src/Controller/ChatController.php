@@ -11,6 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ChatController extends AbstractController
 {
     #[Route('/chat', name: 'chats')]
+
     public function ListesChats(ChatRepository $repo)
     {
         $repo->listeChatsComplete();/* query NOT result */
@@ -23,6 +24,13 @@ class ChatController extends AbstractController
     public function ficheChats(Chat $chat)
     {
         return $this->render('chat/ficheChat.html.twig', [
+            'leChat' => $chat
+        ]);
+    }
+    #[Route("/chat/{id}", name: 'ficheChat', methods :'GET')]
+    public function ficheChats(Chat $chat) : Response
+    {
+        return $this->render('artiste/ficheChat.html.twig', [
             'leChat' => $chat
         ]);
     }
