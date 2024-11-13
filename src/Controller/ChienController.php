@@ -2,17 +2,29 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\Chien;
+use App\Repository\ChienRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ChienController extends AbstractController
 {
-    #[Route('/chien', name: 'app_chien')]
-    public function index(): Response
+    #[Route('/chien', name: 'app_chien', methods : 'GET')]
+    public function listeChiens(ChienRepository $repo)
     {
-        return $this->render('chien/index.html.twig', [
-            'controller_name' => 'ChienController',
+        $chiens=$repo->listeChiensComplete();
+        return $this->render('chien/listeChiens.html.twig', [
+            'lesChiens' => $chiens,
+        ]);
+    }
+
+    
+    #[Route('/chien/{id}', name: 'ficheChien', methods :'GET')]
+    public function ficheChien(Chien $chien)
+    {   
+        return $this->render('artiste/ficheChien.html.twig', [
+            'leChien' => $chien
         ]);
     }
 }
