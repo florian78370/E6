@@ -24,25 +24,11 @@ class ChevalRepository extends ServiceEntityRepository
    /**
     * @return Cheval[] Returns an array of Cheval objects
     */
-   public function findByExampleField($value): array
+   public function listeCheval() : ?Query
    {
-       return $this->createQueryBuilder('c')
-           ->andWhere('c.exampleField = :val')
-           ->setParameter('val', $value)
-           ->orderBy('c.id', 'ASC')
-           ->setMaxResults(10)
-           ->getQuery()
-           ->getResult()
-       ;
-   }
-
-   public function findOneBySomeField($value): ?Cheval
-   {
-       return $this->createQueryBuilder('c')
-           ->andWhere('c.exampleField = :val')
-           ->setParameter('val', $value)
-           ->getQuery()
-           ->getOneOrNullResult()
+        return $this->createQueryBuilder('cheval')
+        ->select('cheval')
+        ->getQuery()
        ;
    }
 }

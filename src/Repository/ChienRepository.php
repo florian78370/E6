@@ -3,8 +3,9 @@
 namespace App\Repository;
 
 use App\Entity\Chien;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @extends ServiceEntityRepository<Chien>
@@ -24,25 +25,11 @@ class ChienRepository extends ServiceEntityRepository
    /**
     * @return Chien[] Returns an array of Chien objects
     */
-   public function findByExampleField($value): array
-   {
-       return $this->createQueryBuilder('c')
-           ->andWhere('c.exampleField = :val')
-           ->setParameter('val', $value)
-           ->orderBy('c.id', 'ASC')
-           ->setMaxResults(10)
-           ->getQuery()
-           ->getResult()
-       ;
-   }
-
-   public function findOneBySomeField($value): ?Chien
-   {
-       return $this->createQueryBuilder('c')
-           ->andWhere('c.exampleField = :val')
-           ->setParameter('val', $value)
-           ->getQuery()
-           ->getOneOrNullResult()
-       ;
-   }
+    public function listeChien() : ?Query
+    {
+         return $this->createQueryBuilder('chien')
+         ->select('chien')
+         ->getQuery()
+        ;
+    }
 }
