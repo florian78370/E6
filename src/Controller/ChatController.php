@@ -10,11 +10,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ChatController extends AbstractController
 {
-    #[Route('/chat', name: 'chats', methods : 'GET')]
+    #[Route('/chat', name: 'chat', methods : 'GET')]
 
     public function ListesChats(ChatRepository $repo)
     {
-        $repo->listeChatsComplete();/* query NOT result */
+        $chats=$repo->listeChatsComplete();/* query NOT result */
         return $this->render('chat/listeChat.html.twig', [
             'lesChats' => $chats,
         ]);

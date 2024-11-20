@@ -15,7 +15,7 @@ class ChevalController extends AbstractController
     {
         $chevaux=$repo->listeChevauxComplete();
         return $this->render('cheval/listeChevaux.html.twig', [
-            'lesChevaux' => $cheval,
+            'lesChevaux' => $chevaux,
         ]);
     }
 
