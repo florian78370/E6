@@ -25,12 +25,22 @@ class ChatRepository extends ServiceEntityRepository
     /**
     * @return Chat[] Returns an array of Chat objects
     */
-    public function listeChatsComplete(): ?Query
+    public function listeChatsComplete(): array
     {
         return $this->createQueryBuilder('chat')
         ->select('chat')
         ->getQuery()
+        ->getResult()
         ;
     }
 
+    //    public function findOneBySomeField($value): ?Chat
+//    {
+//        return $this->createQueryBuilder('chat')
+//            ->andWhere('a.exampleField = :val')
+//            ->setParameter('val', $value)
+//            ->getQuery()
+//            ->getOneOrNullResult()
+//        ;
+//    }
 }
