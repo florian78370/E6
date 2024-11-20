@@ -25,7 +25,7 @@ class ChevalRepository extends ServiceEntityRepository
    /**
     * @return Cheval[] Returns an array of Cheval objects
     */
-   public function listeChevalComplete() : ?Query
+   public function listeChevauxComplete() : ?Query
    {
         return $this->createQueryBuilder('cheval')
         ->select('cheval')
