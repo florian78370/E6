@@ -25,11 +25,12 @@ class ChienRepository extends ServiceEntityRepository
    /**
     * @return Chien[] Returns an array of Chien objects
     */
-    public function listeChiensComplete() : ?Query
+    public function listeChiensComplete() : array
     {
          return $this->createQueryBuilder('chien')
          ->select('chien')
          ->getQuery()
+         ->getResult()
         ;
     }
 }

@@ -14,9 +14,9 @@
         <div class="card mb-3">
             <h3 class="card-header"> <a href="{{path('ficheCheval', {'id': leCheval.id })}} ">{{leCheval.nom}} </a></h3>
             <div class="card-body"></div>
-            <img class = "avatar mx auto d-block" src="{{leCheval.image}}" class="d-block user-select-none" width="200px" height="auto"></img>
             <div class="card-body">
-                <p class="card-text">{{leCheval.description|slice(0,200)|raw}}...</p>
+            <p class="card-text">{{leCheval.description|slice(0,200)|raw}}...</p>
+            <p class="card-text">{{leCheval.prix}}$</p>
             </div>
         </div>
 </div>
