@@ -3,25 +3,23 @@
 {% block title %}Fiche cheval{% endblock %}
 
 {% block body %}
-<h1 class="pt-2 text-center">Fiche de cheval</h1>
+<h1 class="pt-2 text-center">Fiche de produit</h1>
 <hr>
-    <div class="card mb-3">
-            <h3 class="card-header"></h3>
-            <div class="row">
-                <div class="col-3 d-flex align-items-center mx-auto">
-                
-                </div>
+            <th scope="col-4">Nom</th>
                 <div class="col">
                         <div class="card-body">
-                        <a href=" {{path('ficheCheval', {'id': leCheval.id})}} " class="badge badge-success"> {{leCheval.nom}} </a></h5>
+                        <h3><a href=" {{path('ficheCheval', {'id': leCheval.id})}} " class="badge badge-success"> {{leCheval.nom}} </a></h3>
+                </div>
+                <div class="card-body">
+                    <th scope="col-4">Description</th>
+                    <p class="card-text">{{leCheval.description|raw}}</p>
                 </div>
     </div>
         <table class="table table-hover mx-auto">
         <thead>
             <tr>
-            <th scope="col-3">Nom</th>
-            <th scope="col-4">Prix</th>
-            <th scope="col-1">Description</th>
+            <th scope="col-4">Prix</th> 
+            <p class="card-text">{{leCheval.prix}}</p>
             </tr>
         </thead>
     </table>
