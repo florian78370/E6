@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fiche chat{% endblock %}
+
+{% block body %}
+<h1 class="pt-2 text-center">Fiche des Chats</h1>
+<hr>
+<div class="row pt-2"> 
+            
+            <div>
+                <h3 class="card-header"> {{leChat.nom}}</h3>
+        <div class="col">
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{leChat.description|raw}}...</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                </ul> 
+          </div>  
+        </div>  
+      </div>
+</div>
+{% endblock %}

@@ -2,14 +2,14 @@
 
 namespace App\Entity;
 
+use Doctrine\DBAL\Types\Types;
 use App\Repository\ChatRepository;
 use Doctrine\ORM\Mapping as ORM;
-
 #[ORM\Entity(repositoryClass: ChatRepository::class)]
 class Chat
 {
     #[ORM\Id]
-    #[ORM\GeneratedValue]
+    #[ORM\GeneratedValue()]
     #[ORM\Column]
     private ?int $id = null;
 
@@ -19,7 +19,7 @@ class Chat
     #[ORM\Column]
     private ?int $prix = null;
 
-    #[ORM\Column(length: 2000)]
+    #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
     public function getId(): ?int
