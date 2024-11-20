@@ -26,4 +26,5 @@ class ChevalController extends AbstractController
             'leCheval' => $cheval
         ]);
     }
+
 }

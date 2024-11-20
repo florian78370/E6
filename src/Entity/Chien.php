@@ -2,8 +2,9 @@
 
 namespace App\Entity;
 
-use App\Repository\ChienRepository;
+use App\Entity\Chien;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\ChienRepository;
 
 #[ORM\Entity(repositoryClass: ChienRepository::class)]
 class Chien

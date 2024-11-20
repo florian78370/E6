@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Fiche cheval{% endblock %}
+{% block title %}Fiche chien{% endblock %}
 
 {% block body %}
-<h1 class="pt-2 text-center">Fiche de cheval</h1>
+<h1 class="pt-2 text-center">Fiche de chien</h1>
 <hr>
     <div class="card mb-3">
             <h3 class="card-header"></h3>
@@ -13,7 +13,7 @@
                 </div>
                 <div class="col">
                         <div class="card-body">
-                        <a href=" {{path('ficheCheval', {'id': leCheval.id})}} " class="badge badge-success"> {{leCheval.nom}} </a></h5>
+                        <a href=" {{path('ficheChien', {'id': leChien.id})}} " class="badge badge-success"> {{leChien.nom}} </a></h5>
                 </div>
     </div>
         <table class="table table-hover mx-auto">
