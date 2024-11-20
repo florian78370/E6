@@ -2,8 +2,9 @@
 
 namespace App\Entity;
 
-use App\Repository\ChevalRepository;
+use App\Entity\Cheval;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\ChevalRepository;
 
 #[ORM\Entity(repositoryClass: ChevalRepository::class)]
 class Cheval
