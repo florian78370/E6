@@ -7,7 +7,6 @@
 <hr>
 <div class="row pt-2">
 {% for leChat in lesChats %}
-<<<<<<< HEAD
 {% if leChat.prix == leChat.prix %} {% set color = "lightgreen" %}{% endif %}
 <div class="col-sm-12.col-md-4.col-lg-4.col col-xl-3">
     {% set nbChat = leChat|length %}
@@ -22,19 +21,6 @@
                 <span  style="background-color: {{ color }};" class="card-text">{{leChat.prix}}$</span>
                     </li> 
                         </ul>
-=======
-    <div class="col-sm-12 col-md-4 col-lg-4 col col-xl-3">
-            <div class="card mb-3">
-                <h3 class="card-header"> <a href="{{path('ficheChat',{'id':leChat.id})}}">{{leChat.nom}}</a> </h3>
-                <div class="card-body">
-                    <h5 class="card-title">
-                    <a href="{{path('ficheChat', {'id' : leChat.chat.id})}}" class="badge.badge-success"> 
-                    {{leChat.chat.nom}} 
-                    </a>
-                    </h5> 
-                </div>
-                    <p class="card-text">{{leChat.description}}</p>
->>>>>>> 2b87ee610f673f3110772ef83e469aa5f2d43f78
                 </div>
             </div>
         </div>
