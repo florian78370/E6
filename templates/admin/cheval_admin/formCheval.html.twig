@@ -1,40 +1,39 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Ajout/Modif album{% endblock %}
+{% block title %}Ajout/Modif cheval{% endblock %}
 
 {% block body %}
 <h1 class="pt-2 text-center">
-{% if (app.request.attributes.get('_route')=="admin_album_ajout") %}
+{% if (app.request.attributes.get('_route')=="admin_cheval_ajout") %}
     Ajout
 {% else %}
     Modification
 {% endif %}
-    d'un album</h1>
+    d'un produit pour cheval</h1>
 
 
-{{form_start(formAlbum, {'attr':{'novalidate' :  'novalidate'}})}}
+{{form_start(formCheval, {'attr':{'novalidate' :  'novalidate'}})}}
 
 <div class="row">
-    <div class="col">{{form_row(formAlbum.nom)}}</div>
-    <div class="col">{{form_row(formAlbum.image)}}</div>
+    <div class="col">{{form_row(formCheval.nom)}}</div>
+    <div class="col">{{form_row(formCheval.image)}}</div>
 </div>
     <div class="row">
-    <div class="col">{{form_row(formAlbum.date)}}</div>
-    <div class="col">{{form_row(formAlbum.artiste)}}</div>
-    <div class="col">{{form_row(formAlbum.styles)}}</div>
+    <div class="col">{{form_row(formCheval.description)}}</div>
+    <div class="col">{{form_row(formCheval.prix)}}</div>
 </div>
 
 <div class="row">
-    <div class="col"><a href="{{path ('admin_albums')}}" class="btn btn-warning btn-block" >Annuler</a></div>
+    <div class="col"><a href="{{path ('admin_chevals')}}" class="btn btn-warning btn-block" >Annuler</a></div>
     <div class="col"><input type="submit", class="btn btn-success btn-block" value=
-{% if (app.request.attributes.get('_route')=="admin_album_ajout") %}
-    "Ajouter l'album"
+{% if (app.request.attributes.get('_route')=="admin_cheval_ajout") %}
+    "Ajouter un produit pour cheval"
 {% else %}
-    "Modifier l'album"
+    "Modifier le produit"
 {% endif %}></div>
 </div>
  
 
 
-{{form_end(formAlbum)}}
+{{form_end(formCheval)}}
 {% endblock %}
