@@ -12,7 +12,8 @@
     {% set nbChat = leChat|length %}
         <div class="card mb-3">
             <h3 class="card-header"> <a href="{{path('ficheChat', {'id':leChat.id})}}">{{leChat.nom}}</a></h3>
-            <div class="card-body"></div>
+            <div class="card-body">
+            <img class = "avatar mx auto d-block" src="{{asset("images/" ~ leChat.image)}}" class="d-block user-select-none" width="200px" height="auto"</img> </div>
             <div class="card-body">
                 <p class="card-text">{{leChat.description|slice(0,200)|raw}}...</p>
                     <div class="col">  
