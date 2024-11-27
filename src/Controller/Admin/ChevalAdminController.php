@@ -53,7 +53,7 @@ class ChevalAdminController extends AbstractController
     }
 
 
-    #[Route('/admin/chevaux/supression/{id}', name: 'admin_album_supression', methods :'GET')]
+    #[Route('/admin/chevaux/supression/{id}', name: 'admin_cheval_supression', methods :'GET')]
     public function supressionAlbum(Cheval $cheval, EntityManagerInterface $manager)
     {
             $manager->remove($cheval);
