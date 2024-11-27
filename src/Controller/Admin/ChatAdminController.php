@@ -6,7 +6,6 @@ use App\Entity\Chat;
 use App\Form\ChatType;
 use App\Repository\ChatRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,7 +14,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ChatAdminController extends AbstractController
 {
     #[Route('/admin/chats', name: 'admin_chats', methods :'GET')]
-    public function listeChats(ChatRepository $repo, PaginatorInterface $paginator, Request $request)
+    public function listeChats(ChatRepository $repo, Request $request)
     {
         $chats=$paginator->paginate(
         $repo->listeAlbumsCompletePaginee(),

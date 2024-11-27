@@ -4,9 +4,8 @@ namespace App\Controller\Admin;
 
 use App\Entity\Cheval;
 use App\Form\ChevalType;
-use App\Repository\ChevaltRepository;
+use App\Repository\ChevalRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,7 +14,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ChevalAdminController extends AbstractController
 {
     #[Route('/admin/chevaux', name: 'admin_chevaux', methods :'GET')]
-    public function listeAlbums(ChevaltRepository $repo, PaginatorInterface $paginator, Request $request)
+    public function listeAlbums(ChevalRepository $repo, Request $request)
     {
         $chevaux=$paginator->paginate(
         $repo->listeAlbumsCompletePaginee(),
