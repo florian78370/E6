@@ -6,6 +6,7 @@ use App\Entity\Chien;
 use App\Form\ChienType;
 use App\Repository\ChienRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -14,7 +15,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ChienAdminController extends AbstractController
 {
     #[Route('/admin/chiens', name: 'admin_chiens', methods :'GET')]
-    public function listeAlbums(ChienRepository $repo, Request $request)
+    public function listeAlbums(ChienRepository $repo,PaginatorInterface $paginator, Request $request)
     {
         $chiens=$paginator->paginate(
         $repo->listeAlbumsCompletePaginee(),
