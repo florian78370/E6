@@ -47,7 +47,7 @@ class ChienAdminController extends AbstractController
             $this->addFlash("success", "L'chien a bien été $mode");
             return $this->redirectToRoute('admin_chiens');
         }
-        return $this->render('admin/chien/formAjoutModifChien.html.twig', [
+        return $this->render('admin/chien_admin/formChien.html.twig', [
             'formChien' => $form->createView()
         ]);
     }

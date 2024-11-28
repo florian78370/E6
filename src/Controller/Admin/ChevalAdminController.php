@@ -47,8 +47,8 @@ class ChevalAdminController extends AbstractController
             $this->addFlash("success", "Le cheval a bien été $mode");
             return $this->redirectToRoute('admin_chevaux');
         }
-        return $this->render('admin/cheval/formAjoutModifChevaux.html.twig', [
-            'formChevaux' => $form->createView()
+        return $this->render('admin/cheval_admin/formCheval.html.twig', [
+            'formCheval' => $form->createView()
         ]);
     }
 

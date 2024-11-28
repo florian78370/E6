@@ -47,7 +47,7 @@ class ChatAdminController extends AbstractController
             $this->addFlash("success", "Le chat a bien été $mode");
             return $this->redirectToRoute('admin_chats');
         }
-        return $this->render('admin/chat/formAjoutModifChat.html.twig', [
+        return $this->render('admin/chat_admin/formChat.html.twig', [
             'formChat' => $form->createView()
         ]);
     }
