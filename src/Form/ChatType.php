@@ -17,7 +17,7 @@ class ChatType extends AbstractType
             ->add('imageFile', FileType::class, [
             'mapped'=>false, 
             'required'=>false, 
-            'label'=> "Metter l'image"
+            'label'=> "image"
             ])
             ->add('image')
             ->add('nom', TextType::class,[
