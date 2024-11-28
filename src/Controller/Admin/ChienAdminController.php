@@ -18,11 +18,11 @@ class ChienAdminController extends AbstractController
     public function listeChiens(ChienRepository $repo,PaginatorInterface $paginator, Request $request)
     {
         $chiens=$paginator->paginate(
-        $repo->listeChiensCompletePaginee(),
+        $repo->listeChiensComplete(),
         $request->query->getInt('page', 1), /*page number*/
         8 /*limit per page*/
         );
-        return $this->render('admin/chien/listeChiens.html.twig', [
+        return $this->render('admin/chien_admin/listeChien.html.twig', [
             'lesChiens' => $chiens
         ]);
     }

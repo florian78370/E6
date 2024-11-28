@@ -18,11 +18,11 @@ class ChevalAdminController extends AbstractController
     public function listeCheval(ChevalRepository $repo,PaginatorInterface $paginator, Request $request)
     {
         $chevaux=$paginator->paginate(
-        $repo->listeChevalCompletePaginee(),
+        $repo->listeChevauxComplete(),
         $request->query->getInt('page', 1), /*page number*/
         8 /*limit per page*/
         );
-        return $this->render('admin/cheval/listeChevaux.html.twig', [
+        return $this->render('admin/cheval_admin/listeCheval.html.twig', [
             'lesChevaux' => $chevaux
         ]);
     }
