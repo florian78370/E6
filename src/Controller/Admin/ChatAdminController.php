@@ -18,18 +18,18 @@ class ChatAdminController extends AbstractController
     public function listeChats(ChatRepository $repo, PaginatorInterface $paginator, Request $request)
     {
         $chats=$paginator->paginate(
-        $repo->listeAlbumsCompletePaginee(),
+        $repo->listeChatsComplete(),
         $request->query->getInt('page', 1), /*page number*/
         8 /*limit per page*/
         );
-        return $this->render('admin/chat/listeAlbums.html.twig', [
+        return $this->render('admin/chat_admin/listeChat.html.twig', [
             'lesChats' => $chats
         ]);
     }
 
     #[Route('/admin/chats/ajout', name: 'admin_chat_ajout', methods :['GET', 'POST'])]
     #[Route('/admin/chats/modif/{id}', name: 'admin_chat_modif', methods :['GET', 'POST'])]
-    public function ajoutModifAlbum(Chat $album=null, Request $request, EntityManagerInterface $manager)
+    public function ajoutModifChat(Chat $chat=null, Request $request, EntityManagerInterface $manager)
     {
         if($chat==null){
             $chat=new Chat();
@@ -38,7 +38,7 @@ class ChatAdminController extends AbstractController
             $mode="modifié";
         }
 
-        $form=$this->createForm(ChatType::class,$album);
+        $form=$this->createForm(ChatType::class,$chat);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid() )
         {

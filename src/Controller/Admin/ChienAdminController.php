@@ -15,21 +15,21 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ChienAdminController extends AbstractController
 {
     #[Route('/admin/chiens', name: 'admin_chiens', methods :'GET')]
-    public function listeAlbums(ChienRepository $repo,PaginatorInterface $paginator, Request $request)
+    public function listeChiens(ChienRepository $repo,PaginatorInterface $paginator, Request $request)
     {
         $chiens=$paginator->paginate(
-        $repo->listeAlbumsCompletePaginee(),
+        $repo->listeChiensCompletePaginee(),
         $request->query->getInt('page', 1), /*page number*/
         8 /*limit per page*/
         );
-        return $this->render('admin/chien/listeAlbums.html.twig', [
+        return $this->render('admin/chien/listeChiens.html.twig', [
             'lesChiens' => $chiens
         ]);
     }
 
     #[Route('/admin/chiens/ajout', name: 'admin_chien_ajout', methods :['GET', 'POST'])]
     #[Route('/admin/chiens/modif/{id}', name: 'admin_chien_modif', methods :['GET', 'POST'])]
-    public function ajoutModifAlbum(Chien $chien=null, Request $request, EntityManagerInterface $manager)
+    public function ajoutModifChien(Chien $chien=null, Request $request, EntityManagerInterface $manager)
     {
         if($chien==null){
             $chien=new Chien();
@@ -47,14 +47,14 @@ class ChienAdminController extends AbstractController
             $this->addFlash("success", "L'chien a bien été $mode");
             return $this->redirectToRoute('admin_chiens');
         }
-        return $this->render('admin/chien/formAjoutModifAlbum.html.twig', [
+        return $this->render('admin/chien/formAjoutModifChien.html.twig', [
             'formChien' => $form->createView()
         ]);
     }
 
 
     #[Route('/admin/chiens/supression/{id}', name: 'admin_chien_supression', methods :'GET')]
-    public function supressionAlbum(Chien $chien, EntityManagerInterface $manager)
+    public function supressionChien(Chien $chien, EntityManagerInterface $manager)
     {
             $manager->remove($chien);
             $manager->flush();

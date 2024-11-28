@@ -15,21 +15,21 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ChevalAdminController extends AbstractController
 {
     #[Route('/admin/chevaux', name: 'admin_chevaux', methods :'GET')]
-    public function listeAlbums(ChevalRepository $repo,PaginatorInterface $paginator, Request $request)
+    public function listeCheval(ChevalRepository $repo,PaginatorInterface $paginator, Request $request)
     {
         $chevaux=$paginator->paginate(
-        $repo->listeAlbumsCompletePaginee(),
+        $repo->listeChevalCompletePaginee(),
         $request->query->getInt('page', 1), /*page number*/
         8 /*limit per page*/
         );
-        return $this->render('admin/cheval/listeAlbums.html.twig', [
+        return $this->render('admin/cheval/listeChevaux.html.twig', [
             'lesChevaux' => $chevaux
         ]);
     }
 
     #[Route('/admin/chevaux/ajout', name: 'admin_cheval_ajout', methods :['GET', 'POST'])]
     #[Route('/admin/chevaux/modif/{id}', name: 'admin_cheval_modif', methods :['GET', 'POST'])]
-    public function ajoutModifAlbum(Cheval $cheval=null, Request $request, EntityManagerInterface $manager)
+    public function ajoutModifCheval(Cheval $cheval=null, Request $request, EntityManagerInterface $manager)
     {
         if($cheval==null){
             $cheval=new Cheval();
@@ -54,7 +54,7 @@ class ChevalAdminController extends AbstractController
 
 
     #[Route('/admin/chevaux/supression/{id}', name: 'admin_cheval_supression', methods :'GET')]
-    public function supressionAlbum(Cheval $cheval, EntityManagerInterface $manager)
+    public function supressionCheval(Cheval $cheval, EntityManagerInterface $manager)
     {
             $manager->remove($cheval);
             $manager->flush();
