@@ -18,7 +18,7 @@ class ChienType extends AbstractType
         ->add('imageFile', FileType::class, [
             'mapped'=>false, 
             'required'=>false, 
-            'label'=> "Metter l'image"
+            'label'=> "image"
         ])
         ->add('image', HiddenType::class)
         ->add('nom', TextType::class,[

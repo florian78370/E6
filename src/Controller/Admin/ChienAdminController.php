@@ -44,7 +44,7 @@ class ChienAdminController extends AbstractController
         {
             $manager->persist($chien);
             $manager->flush();
-            $this->addFlash("success", "L'chien a bien été $mode");
+            $this->addFlash("success", "Le chien a bien été $mode");
             return $this->redirectToRoute('admin_chiens');
         }
         return $this->render('admin/chien_admin/formChien.html.twig', [
