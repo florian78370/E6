@@ -28,7 +28,7 @@ class ChatType extends AbstractType
             ]
             ])
             ->add ('prix')
-            ->add('description', TextareaType::class)
+            ->add('description', TextType::class)
             ->add ('updatedAt')
             
         ;
