@@ -13,14 +13,34 @@
 
 
 {{form_start(formChien, {'attr':{'novalidate' :  'novalidate'}})}}
-
+<style>
+.grand{
+    width:1500px;
+    height:100%;
+}
+</style>
 <div class="row">
-    <div class="col">{{form_row(formChien.nom)}}</div>
-    <div class="col">{{form_row(formChien.image)}}</div>
-</div>
+    <div class="col">
+    <p>
+    <div class="col">{{form_row(formChien.nom)}}
+    </p>
+    <p>
+    <div class="col grand">{{form_row(formChien.description)}}
+    </p>
+    <div class="col">{{form_row(formChien.prix)}}
+    </div>
+    <p>
+    <div>
+    <div class="col">{{form_row(formChien.imageFile)}}
+    </div>
+    </p>
     <div class="row">
-    <div class="col">{{form_row(formChien.description)}}</div>
-    <div class="col">{{form_row(formChien.prix)}}</div>
+    <div class="col-4">
+        <img src="{{asset("images/" ~ formChien.image.vars.value)}}" alt="" class="rounded mx auto d-block img thumbnail">
+    <div>
+
+    </div>
+    </div>
 </div>
 
 <div class="row">

@@ -13,20 +13,40 @@
 
 
 {{form_start(formCheval, {'attr':{'novalidate' :  'novalidate'}})}}
-
+<style>
+.grand{
+    width:1500px;
+    height:100%;
+}
+</style>
 <div class="row">
-    <div class="col">{{form_row(formCheval.nom)}}</div>
-    <div class="col">{{form_row(formCheval.image)}}</div>
-</div>
+    <div class="col">
+    <p>
+    <div class="col">{{form_row(formCheval.nom)}}
+    </p>
+    <p>
+    <div class="col grand">{{form_row(formCheval.description)}}
+    </p>
+    <div class="col">{{form_row(formCheval.prix)}}
+    </div>
+    <p>
+    <div>
+    <div class="col">{{form_row(formCheval.imageFile)}}
+    </div>
+    </p>
     <div class="row">
-    <div class="col">{{form_row(formCheval.description)}}</div>
-    <div class="col">{{form_row(formCheval.prix)}}</div>
+    <div class="col-4">
+        <img src="{{asset("images/" ~ formCheval.image.vars.value)}}" alt="" class="rounded mx auto d-block img thumbnail">
+    <div>
+
+    </div>
+    </div>
 </div>
 
 <div class="row">
     <div class="col"><a href="{{path ('admin_chevaux')}}" class="btn btn-warning btn-block" >Annuler</a></div>
     <div class="col"><input type="submit", class="btn btn-success btn-block" value=
-{% if (app.request.attributes.get('_route')=="admin_cheval_ajout") %}
+{% if (app.request.attributes.get('_route')=="admin_chevaux_ajout") %}
     "Ajouter un produit pour cheval"
 {% else %}
     "Modifier le produit"
