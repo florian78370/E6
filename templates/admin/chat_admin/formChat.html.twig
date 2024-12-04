@@ -15,16 +15,19 @@
 {{form_start(formChat, {'attr':{'novalidate' :  'novalidate'}})}}
 
 <div class="row">
-    <div class="col-8">
-    {{form_row(formChat.nom)}}
-    {{form_row(formChat.description)}}
-    {{form_row(formChat.prix)}}
+    <div class="col">
+    <div class="col">{{form_row(formChat.nom)}}
+    <div class="col">{{form_row(formChat.description)}}
+    <div class="col">{{form_row(formChat.prix)}}
     </div>
+    <div>
+    <div class="col">{{form_row(formChat.imageFile)}}
+    </div>
+    <div class="row">
     <div class="col-4">
         <img src="{{asset("images/" ~ formChat.image.vars.value)}}" alt="" class="rounded mx auto d-block img thumbnail">
     <div>
-    <div>
-    {{form_row(formChat.imageFile)}}
+
     </div>
     </div>
 </div>

@@ -23,7 +23,7 @@ class AppFixtures extends Fixture
             $chat    ->setId(intval($value[0]))
                         ->setNom($value[1])
                         ->setPrix($value[2])
-                        ->setDescription("<p>". join("</p><p>", $faker->paragraphs(5))."</p>");
+                        ->setDescription(join($faker->paragraphs(5)));
             $manager->persist($chat);
             $this->addReference("chat". $chat->getId(),$chat);
         }
@@ -36,7 +36,7 @@ class AppFixtures extends Fixture
             $chien ->setId(intval($value[0]))
                    ->setNom($value[1])
                    ->setPrix($value[2])
-                   ->setDescription("<p>". join("</p><p>", $faker->paragraphs(5))."</p>");
+                   ->setDescription(join($faker->paragraphs(5)));
                    $manager->persist($chien);
                    $this->addReference("Chien".$chien->getId(),$chien);
         }
@@ -49,7 +49,7 @@ class AppFixtures extends Fixture
             $cheval ->setId(intval($value[0]))
                    ->setNom($value[1])
                    ->setPrix($value[2])
-                   ->setDescription("<p>". join("</p><p>", $faker->paragraphs(5))."</p>");
+                   ->setDescription(join($faker->paragraphs(5)));
                    $manager->persist($cheval);
                    $this->addReference("Cheval".$cheval->getId(),$cheval);
         }
