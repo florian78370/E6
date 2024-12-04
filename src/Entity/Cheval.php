@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-use App\Entity\Cheval;
+
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\ChevalRepository;
 
