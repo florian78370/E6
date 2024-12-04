@@ -91,11 +91,13 @@ class Chat
     public function getUpdatedAt(): ?\DateTimeImmutable
     {
         return $this->updatedAt;
+
     }
 
     public function setUpdatedAt(\DateTimeImmutable $updatedAt): static
     {
         $this->updatedAt = $updatedAt;
+        $this->setImage("R.png");
 
         return $this;
     }

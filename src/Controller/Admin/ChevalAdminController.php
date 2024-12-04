@@ -44,7 +44,7 @@ class ChevalAdminController extends AbstractController
         {
             $manager->persist($cheval);
             $manager->flush();
-            $this->addFlash("success", "Le cheval a bien été $mode");
+            $this->addFlash("success", "Le produit a bien été $mode");
             return $this->redirectToRoute('admin_chevaux');
         }
         return $this->render('admin/cheval_admin/formCheval.html.twig', [
@@ -58,7 +58,7 @@ class ChevalAdminController extends AbstractController
     {
             $manager->remove($cheval);
             $manager->flush();
-            $this->addFlash("success", "Le cheval a bien été supprimé");
+            $this->addFlash("success", "Le produit a bien été supprimé");
 
         return $this->redirectToRoute('admin_chevaux');
     }
