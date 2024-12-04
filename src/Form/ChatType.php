@@ -19,16 +19,23 @@ class ChatType extends AbstractType
             'required'=>false, 
             'label'=> "image"
             ])
-            ->add('image')
+            ->add('image',TextType::class,[
+                'attr'=>[]
+            ])
             ->add('nom', TextType::class,[
+            'attr'=>['class'=>'form-control'],
             'label'=> "Nom du produit",
             'required'=> false,
             'attr'=>[
-                'placeholder' =>"Saisir le nom du produit"
+                'placeholder' =>"Saisir le nom du produit",
+                'class'=>'form-control'
             ]
             ])
             ->add ('prix')
-            ->add('description', TextType::class)
+            ->add('description', TextType::class, [
+                'attr'=>['class'=>'form-control',
+                'placeholder' =>"Saisir une description"]
+            ])
             
         ;
     }

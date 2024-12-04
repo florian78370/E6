@@ -14,22 +14,29 @@ class ChevalType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-        ->add('imageFile', FileType::class, [
+            ->add('imageFile', FileType::class, [
             'mapped'=>false, 
             'required'=>false, 
             'label'=> "image"
-        ])
-        ->add('image')
-        ->add('nom', TextType::class,[
-        'label'=> "Nom du produit",
-        'required'=> false,
-        'attr'=>[
-            'placeholder' =>"Saisir le nom du produit"
-        ]
-        ])
-        ->add ('prix')
-        ->add ('description')
-        ->add ('updatedAt')
+            ])
+            ->add('image',TextType::class,[
+                'attr'=>[]
+            ])
+            ->add('nom', TextType::class,[
+            'attr'=>['class'=>'form-control'],
+            'label'=> "Nom du produit",
+            'required'=> false,
+            'attr'=>[
+                'placeholder' =>"Saisir le nom du produit",
+                'class'=>'form-control'
+            ]
+            ])
+            ->add ('prix')
+            ->add('description', TextType::class, [
+                'attr'=>['class'=>'form-control',
+                'placeholder' =>"Saisir une description"]
+            ])
+            
         ;
     }
 
