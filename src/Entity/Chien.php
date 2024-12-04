@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-use App\Entity\Chien;
+
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\ChienRepository;
 

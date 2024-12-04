@@ -56,6 +56,8 @@ class AppFixtures extends Fixture
         $manager->flush();
     }
 
+    
+
     public function chargeFichier($fichier) 
     {
         $fichierCsv=fopen(__DIR__. "/". $fichier ,"r");
