@@ -5,28 +5,9 @@
 {% block body %}
 <h1 class="pt-2 text-center">Liste des produits</h1>
 <hr>
-<div class="row pt-2">
-{% for leChat in lesChats %}
-{% if leChat.prix == leChat.prix %} {% set color = "lightgreen" %}{% endif %}
-<div class="col-sm-12.col-md-4.col-lg-4.col col-xl-3">
-    {% set nbChat = leChat|length %}
-        <div class="card mb-3">
-            <h3 class="card-header"> <a href="{{path('ficheChat', {'id':leChat.id})}}">{{leChat.nom}}</a></h3>
-            <div class="card-body">
-            <img class = "avatar mx auto d-block" src="{{asset("images/" ~ leChat.image)}}" class="d-block user-select-none" width="200px" height="auto"</img> </div>
-            <div class="card-body">
-                <p class="card-text">{{leChat.description|slice(0,200)|raw}}...</p>
-                    <div class="col">  
-                    <ul class="list-group list-group-flush-center">
-                    <li class="list-group-item">
-                <span  style="background-color: {{ color }};" class="card-text">{{leChat.prix}}$</span>
-                    </li> 
-                        </ul>
-                </div>
-            </div>
-        </div>
-</div>
+
 {% endfor %}
+<<<<<<< HEAD
 <hr>
 <div class="row pt-2">
 {% for leCheval in lesChevaux %}
@@ -53,5 +34,7 @@
 {% endfor %}
 
 </div>
+=======
+>>>>>>> d6114eb3ef59fcd03a7ef7b76d4d2ca1340f0502
 </div>
 {% endblock %}
