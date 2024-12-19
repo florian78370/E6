@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Chat;
 use App\Form\ChatType;
+use App\Form\FiltreAnimauxType;
 use App\Repository\ChatRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
@@ -17,13 +18,29 @@ class ChatAdminController extends AbstractController
     #[Route('/admin/chats', name: 'admin_chats', methods :'GET')]
     public function listeChats(ChatRepository $repo, PaginatorInterface $paginator, Request $request)
     {
+        $FiltreAnimauxType=$this->createForm(FiltreAnimauxType::class);
+        $FiltreAnimauxType->handleRequest($request);
+        if($FiltreAnimauxType->isSubmitted() && $FiltreAnimauxType->isValid())
+            $nom=$FiltreAnimauxType->getData()['nom'];
+        {
+            $chats=$paginator->paginate(
+                $repo->listeChatsComplete(),
+                $request->query->getInt('page', 1), /*page number*/
+                8 /*limit per page*/
+            );
+            return $this->render('admin/chat_admin/listeChat.html.twig', [
+                'lesChats' => $chats,
+                'formFiltreALbums' => $FiltreAnimauxType->createView()
+            ]);
+        }
         $chats=$paginator->paginate(
         $repo->listeChatsComplete(),
         $request->query->getInt('page', 1), /*page number*/
         8 /*limit per page*/
         );
         return $this->render('admin/chat_admin/listeChat.html.twig', [
-            'lesChats' => $chats
+            'lesChats' => $chats,
+            'formFiltreALbums' => $FiltreAnimauxType->createView()
         ]);
     }
 
