@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class ChienType extends AbstractType
@@ -19,9 +20,7 @@ class ChienType extends AbstractType
             'required'=>false, 
             'label'=> "image"
             ])
-            ->add('image',TextType::class,[
-                'attr'=>[]
-            ])
+            ->add('image',HiddenType::class)
             ->add('nom', TextType::class,[
             'attr'=>['class'=>'form-control'],
             'label'=> "Nom du produit",

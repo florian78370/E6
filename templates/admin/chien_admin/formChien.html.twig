@@ -12,34 +12,28 @@
     d'un produit pour chien</h1>
 
 
-{{form_start(formChien, {'attr':{'novalidate' :  'novalidate'}})}}
+{{ form_start(formChien, {'attr': {'novalidate': 'novalidate'}}) }}
 <style>
-.grand{
-    width:1500px;
-    height:100%;
+.grand {
+    width: 100%;
+    height: auto;
+}
+.img-thumbnail {
+    width: 300px;
+    height: auto;
 }
 </style>
 <div class="row">
     <div class="col">
-    <p>
-    <div class="col">{{form_row(formChien.nom)}}
-    </p>
-    <p>
-    <div class="col grand">{{form_row(formChien.description)}}
-    </p>
-    <div class="col">{{form_row(formChien.prix)}}
+        <p>{{ form_row(formChien.nom) }}</p>
+        <p class="grand">{{ form_row(formChien.description) }}</p>
+        <p>{{ form_row(formChien.prix) }}</p>
+        <p>{{ form_row(formChien.imageFile) }}</p>
     </div>
-    <p>
-    <div>
-    <div class="col">{{form_row(formChien.imageFile)}}
-    </div>
-    </p>
-    <div class="row">
+</div>
+<div class="row">
     <div class="col-4">
-        <img src="{{asset("images/" ~ formChien.image.vars.value)}}" alt="" class="rounded mx auto d-block img thumbnail">
-    <div>
-
-    </div>
+        <img src="{{ asset('images/' ~ formChien.image.vars.value) }}" alt="" class="rounded mx-auto d-block img-thumbnail">
     </div>
 </div>
 

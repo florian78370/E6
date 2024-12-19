@@ -12,29 +12,28 @@
     d'un produit pour chat</h1>
 
 
-{{form_start(formChat, {'attr':{'novalidate' :  'novalidate'}})}}
-
+{{ form_start(formChat, {'attr': {'novalidate': 'novalidate'}}) }}
+<style>
+.grand {
+    width: 100%;
+    height: auto;
+}
+.img-thumbnail {
+    width: 300px;
+    height: auto;
+}
+</style>
 <div class="row">
     <div class="col">
-    <p>
-    <div class="col">{{form_row(formChat.nom)}}
-    </p>
-    <p>
-    <div class="col">{{form_row(formChat.description)}}
-    </p>
-    <div class="col">{{form_row(formChat.prix)}}
+        <p>{{ form_row(formChat.nom) }}</p>
+        <p class="grand">{{ form_row(formChat.description) }}</p>
+        <p>{{ form_row(formChat.prix) }}</p>
+        <p>{{ form_row(formChat.imageFile) }}</p>
     </div>
-    <p>
-    <div>
-
-    </p>
-    <div class="row">
+</div>
+<div class="row">
     <div class="col-4">
-        <img src="{{asset("images/" ~ formChat.image.vars.value)}}" alt="" class="rounded mx auto d-block img thumbnail">
-    <div>
-    <div class="col">{{form_row(formChat.imageFile)}}
-    </div>
-    </div>
+        <img src="{{ asset('images/' ~ formChat.image.vars.value) }}" alt="" class="rounded mx-auto d-block img-thumbnail">
     </div>
 </div>
 

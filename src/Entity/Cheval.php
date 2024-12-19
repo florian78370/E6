@@ -98,6 +98,7 @@ class Cheval
     public function setUpdatedAt(\DateTimeImmutable $updatedAt): static
     {
         $this->updatedAt = $updatedAt;
+        $this->setImage("gros cheval.jpg");
 
         return $this;
     }

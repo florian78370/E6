@@ -9,44 +9,37 @@
 <table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col-1"></th>
-      <th scope="col-3">Nom</th>
-      <th scope="col-1">Description</th>
-      <th scope="col-2">Image</th>
-      <th scope="col-1">Prix</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Description</th>
+      <th scope="col">Image</th>
+      <th scope="col">Prix</th>
+      <th scope="col">Actions</th>
     </tr>
-    </thead>
-    <tbody>
-    
+  </thead>
+  <tbody>
     {% for leChat in lesChats %}
-    <div class="col-sm-12.col-md-4.col-lg-4.col col-xl-3">
-      <tr>
-      <td class="col-1"><img class = "avatar mx auto d-block" src="{{leChat.image}}" class="d-block user-select-none" width="50px" height="auto"</img> </td>
-      <td class="col-3">{{leChat.nom}}</td>
-      <td class="col-1">{{leChat.description}}</td>
-      <td class="col-2">{{leChat.prix}}</td>
-      <td class="col-1">
-      </td>
-      </p>
-      </td>
-      <td class="col-2">
-          <a href="{{path('admin_chat_modif' , {'id': leChat.id})}}" class="btn btn-primary"><i class="fas fa-pen"></i></a>
-          <a class="btn btn-danger" 
+    <tr>
+      <td>{{leChat.nom}}</td>
+      <td>{{ leChat.description|length > 30 ? leChat.description|slice(0, 30) ~ '...' : leChat.description }}</td>
+      <td><img src="{{ asset(leChat.image) }}" class="img-fluid"></td>
+      <td>{{leChat.prix}} $</td>
+      <td>
+        <a href="{{path('admin_chat_modif' , {'id': leChat.id})}}" class="btn btn-primary"><i class="fas fa-pen"></i></a>
+        <a class="btn btn-danger" 
           data-toggle="modal" 
           data-target="#modalSimple" 
           data-titre="Supression d'un produit pour chat" 
           data-message="Êtes-vous sûr de vouloir supprimer le produit : {{leChat.nom}}" 
           data-libelleBouton="Supprimer le produit"
           data-lien="{{path('admin_chat_supression', {'id' : leChat.id})}}"
-          ><i class="far fa-trash-alt"></i></a>
+        ><i class="far fa-trash-alt"></i></a>
       </td>
-      </tr>
-      {% endfor %}
+    </tr>
+    {% endfor %}
   </tbody>
 </table>
-    <div class="navigation mx-auto">
-        {{ knp_pagination_render(lesChats) }}
-    </div>
+<div class="navigation mx-auto">
+  {{ knp_pagination_render(lesChats) }}
 </div>
 {% endblock %}
 {% block javascripts %}
