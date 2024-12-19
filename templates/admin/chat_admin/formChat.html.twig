@@ -29,11 +29,7 @@
         <p class="grand">{{ form_row(formChat.description) }}</p>
         <p>{{ form_row(formChat.prix) }}</p>
         <p>{{ form_row(formChat.imageFile) }}</p>
-    </div>
-</div>
-<div class="row">
-    <div class="col-4">
-        <img src="{{ asset('images/' ~ formChat.image.vars.value) }}" alt="" class="rounded mx-auto d-block img-thumbnail">
+        <img src="{{ asset('images/' ~ formChat.image.vars.value) }}" class="rounded mx-auto d-block img-thumbnail">
     </div>
 </div>
 
@@ -47,7 +43,5 @@
 {% endif %}></div>
 </div>
  
-
-
 {{form_end(formChat)}}
 {% endblock %}
