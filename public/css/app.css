@@ -11,3 +11,7 @@
     max-width : 40px;
     height: auto;
 }
+
+.animaux::hover{
+    box-shadow: 4cm;
+}
