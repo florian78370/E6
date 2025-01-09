@@ -11,7 +11,6 @@
     <tr>
       <th scope="col">Nom</th>
       <th scope="col">Description</th>
-      <th scope="col">Image</th>
       <th scope="col">Prix</th>
       <th scope="col">Actions</th>
     </tr>
@@ -21,7 +20,6 @@
     <tr>
       <td>{{leChat.nom}}</td>
       <td>{{ leChat.description|length > 30 ? leChat.description|slice(0, 30) ~ '...' : leChat.description }}</td>
-      <td><img src="{{ asset(leChat.image) }}" class="img-fluid"></td>
       <td>{{leChat.prix}} $</td>
       <td>
         <a href="{{path('admin_chat_modif' , {'id': leChat.id})}}" class="btn btn-primary"><i class="fas fa-pen"></i></a>

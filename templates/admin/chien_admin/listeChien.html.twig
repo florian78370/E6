@@ -11,7 +11,6 @@
     <tr>
       <th scope="col">Nom</th>
       <th scope="col">Description</th>
-      <th scope="col">Image</th>
       <th scope="col">Prix</th>
       <th scope="col">Actions</th>
     </tr>
@@ -21,7 +20,6 @@
     <tr>
       <td>{{leChien.nom}}</td>
       <td>{{ leChien.description|length > 30 ? leChien.description|slice(0, 30) ~ '...' : leChien.description }}</td>
-      <td><img src="{{ asset(leChien.image) }}" class="img-fluid"></td>
       <td>{{leChien.prix}} $</td>
       <td>
         <a href="{{path('admin_chien_modif' , {'id': leChien.id})}}" class="btn btn-primary"><i class="fas fa-pen"></i></a>
