@@ -3,8 +3,11 @@
 namespace App\Entity;
 
 use Doctrine\DBAL\Types\Types;
-use App\Repository\ChatRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\ChatRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+
 #[ORM\Entity(repositoryClass: ChatRepository::class)]
 class Chat
 {
@@ -27,6 +30,14 @@ class Chat
 
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $updatedAt;
+
+    #[ORM\OneToMany(targetEntity: Categorie::class, mappedBy: 'chat')]
+    private Collection $categorie;
+
+    public function __construct()
+    {
+        $this->categorie = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -98,6 +109,18 @@ class Chat
     {
         $this->updatedAt = $updatedAt;
         $this->setImage("chat.png");
+
+        return $this;
+    }
+
+    public function getCategorie(): Collection
+    {
+        return $this->categorie;
+    }
+
+    public function setCategorie(Collection $categorie): static
+    {
+        $this->categorie = $categorie;
 
         return $this;
     }
