@@ -1,6 +1,34 @@
+
+{% extends 'base.html.twig' %}
+
+
+
+{% block title %}Ajout/Modif chat{% endblock %}
+
+<!-- filepath: c:\laragon\www\blabla\E6\templates\admin\chat_admin\formChat.html.twig -->
 {% extends 'base.html.twig' %}
 
 {% block title %}Ajout/Modif chat{% endblock %}
+
+{% block body %}
+<!-- Barre de recherche -->
+<form method="get" action="{{ path('admin_search') }}" class="mb-4">
+    <div class="input-group">
+        <input type="text" name="q" class="form-control" placeholder="Rechercher un produit..." value="{{ app.request.query.get('q') }}">
+        <button class="btn btn-primary" type="submit">Rechercher</button>
+    </div>
+</form>
+
+<h1 class="pt-2 text-center">
+{% if (app.request.attributes.get('_route')=="admin_chat_ajout") %}
+    Ajout
+{% else %}
+    Modification
+{% endif %}
+    d'un produit pour chat</h1>
+
+{{ form_start(formChat, {'attr': {'novalidate': 'novalidate'}}) }}
+
 
 {% block body %}
 <h1 class="pt-2 text-center">

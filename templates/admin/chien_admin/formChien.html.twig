@@ -2,6 +2,31 @@
 
 {% block title %}Ajout/Modif chien{% endblock %}
 
+<!-- filepath: c:\laragon\www\blabla\E6\templates\admin\chien_admin\formChien.html.twig -->
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajout/Modif chien{% endblock %}
+
+{% block body %}
+<!-- Barre de recherche -->
+<form method="get" action="{{ path('admin_search') }}" class="mb-4">
+    <div class="input-group">
+        <input type="text" name="q" class="form-control" placeholder="Rechercher un produit..." value="{{ app.request.query.get('q') }}">
+        <button class="btn btn-primary" type="submit">Rechercher</button>
+    </div>
+</form>
+
+<h1 class="pt-2 text-center">
+{% if (app.request.attributes.get('_route')=="admin_chien_ajout") %}
+    Ajout
+{% else %}
+    Modification
+{% endif %}
+    d'un produit pour chien</h1>
+
+{{ form_start(formChien, {'attr': {'novalidate': 'novalidate'}}) }}
+<!-- ...le reste du code existant... -->
+
 {% block body %}
 <h1 class="pt-2 text-center">
 {% if (app.request.attributes.get('_route')=="admin_chien_ajout") %}
